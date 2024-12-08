@@ -1,6 +1,14 @@
 <resources>
+    <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Set the primary color -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorAccent">@color/yellow</item>
+
+        <!-- Set the default font for the entire app -->
+        <item name="android:fontFamily">@font/jaro</item>
+
+        <!-- Set the default text color -->
+        <item name="android:textColor">@color/textPrimary</item>
     </style>
 </resources>

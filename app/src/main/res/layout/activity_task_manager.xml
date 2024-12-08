@@ -1,13 +1,30 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/background">
 
+    <!-- Title or Header -->
+    <TextView
+        android:id="@+id/taskManagerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Manager"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/blue" />
+
+    <!-- Task List -->
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/addTaskButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="72dp">
 
         <LinearLayout
             android:id="@+id/taskListContainer"
@@ -15,4 +32,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
-</LinearLayout>
+
+    <!-- Add Task Button -->
+    <Button
+        android:id="@+id/addTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:padding="12dp" />
+</RelativeLayout>

@@ -65,6 +65,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    // Delete a note
+    public void deleteNote(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NOTES, COLUMN_NOTE_ID + "=?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     // Get all notes
     public List<Note> getAllNotes() {
         List<Note> notes = new ArrayList<>();

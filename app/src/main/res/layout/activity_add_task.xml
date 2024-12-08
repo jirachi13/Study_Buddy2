@@ -3,41 +3,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:gravity="center"
     android:background="@color/background">
 
+    <!-- Task Title Input -->
     <EditText
         android:id="@+id/taskTitleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Task Title"
-        android:padding="8dp"
+        android:padding="16dp"
         android:background="@drawable/rounded_background"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp" />
 
+    <!-- Task Description Input -->
     <EditText
         android:id="@+id/taskDescriptionInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Task Description"
-        android:padding="8dp"
+        android:padding="16dp"
         android:background="@drawable/rounded_background"
         android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginBottom="12dp" />
 
+    <!-- Due Date Input -->
     <TextView
         android:id="@+id/dueDateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Due Date"
-        android:padding="8dp"
+        android:hint="Select Due Date"
+        android:padding="16dp"
         android:background="@drawable/rounded_background"
         android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp" />
 
+    <!-- Submit Button -->
     <Button
         android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit"
+        android:padding="12dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:layout_marginTop="16dp" />
 </LinearLayout>

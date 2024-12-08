@@ -1,7 +1,7 @@
 package com.example.studybuddy;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+import java.util.Calendar;
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -33,6 +34,9 @@ public class NotesActivity extends AppCompatActivity {
         noteContentInput = findViewById(R.id.noteContentInput);
         noteDateInput = findViewById(R.id.noteDateInput);
         addNoteButton = findViewById(R.id.addNoteButton);
+
+        // Make the note date input clickable
+        noteDateInput.setOnClickListener(v -> showDatePicker());
 
         addNoteButton.setOnClickListener(v -> {
             String title = noteTitleInput.getText().toString().trim();
@@ -103,5 +107,20 @@ public class NotesActivity extends AppCompatActivity {
         noteTitleInput.setText("");
         noteContentInput.setText("");
         noteDateInput.setText("");
+    }
+
+    private void showDatePicker() {
+        // Show DatePickerDialog
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
+                    String selectedDate = (selectedMonth + 1) + "/" + selectedDayOfMonth + "/" + selectedYear;
+                    noteDateInput.setText(selectedDate);
+                }, year, month, day);
+        datePickerDialog.show();
     }
 }

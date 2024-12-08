@@ -1,7 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@drawable/clouds">
+
+    <!-- Main content goes here (other UI components) -->
 
     <!-- Bottom Navigation Icons -->
     <LinearLayout
@@ -10,20 +13,20 @@
         android:orientation="horizontal"
         android:gravity="center_horizontal"
         android:padding="16dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true">  <!-- Ensure the icons are at the bottom -->
 
         <ImageView
             android:id="@+id/taskManagerIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_task_manager"
+            android:src="@drawable/task"
             android:tint="@color/blue" />
 
         <ImageView
             android:id="@+id/pomodoroTimerIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_timer"
+            android:src="@drawable/timer"
             android:tint="@color/blue"
             android:layout_marginStart="16dp" />
 
@@ -39,7 +42,7 @@
             android:id="@+id/notesIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_notes"
+            android:src="@drawable/note"
             android:tint="@color/blue"
             android:layout_marginStart="16dp" />
 
@@ -47,8 +50,16 @@
             android:id="@+id/calendarIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/date"
             android:tint="@color/blue"
             android:layout_marginStart="16dp" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo" />
+
+
 </RelativeLayout>

@@ -1,60 +1,62 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp"
+    android:gravity="center"
     android:background="@color/background">
 
-    <LinearLayout
+    <!-- Note Title Input -->
+    <EditText
+        android:id="@+id/noteTitleInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
+        android:hint="Note Title"
         android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:background="@drawable/rounded_background"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp" />
 
-        <EditText
-            android:id="@+id/noteTitleInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Note Title"
-            android:padding="8dp"
-            android:background="@drawable/rounded_background"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+    <!-- Note Content Input -->
+    <EditText
+        android:id="@+id/noteContentInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note Content"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:textSize="16sp"
+        android:layout_marginBottom="12dp" />
 
-        <EditText
-            android:id="@+id/noteContentInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Note Content"
-            android:padding="8dp"
-            android:background="@drawable/rounded_background"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
+    <!-- Note Date Input -->
+    <TextView
+        android:id="@+id/noteDateInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Note Date"
+        android:padding="16dp"
+        android:background="@drawable/rounded_background"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp" />
 
-        <TextView
-            android:id="@+id/noteDateInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Note Date"
-            android:padding="8dp"
-            android:background="@drawable/rounded_background"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp" />
+    <!-- Add Note Button -->
+    <Button
+        android:id="@+id/addNoteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Note"
+        android:padding="12dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
 
-        <Button
-            android:id="@+id/addNoteButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Add Note"
-            android:layout_marginBottom="24dp" />
-    </LinearLayout>
-
+    <!-- Notes List Container -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="24dp">
 
         <LinearLayout
             android:id="@+id/notesListContainer"
@@ -62,4 +64,4 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

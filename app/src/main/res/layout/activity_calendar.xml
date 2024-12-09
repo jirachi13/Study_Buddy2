@@ -3,22 +3,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:gravity="center"
     android:background="@drawable/clouds">
 
+    <!-- Calendar Title (Centered at the top) -->
+    <TextView
+        android:id="@+id/calendarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendar"
+        android:textSize="24sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Calendar View -->
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- Selected Date Display -->
     <TextView
         android:id="@+id/selectedDateTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Selected Date"
+        android:text="Select a Date"
         android:textSize="18sp"
-        android:layout_marginTop="8dp" />
+        android:textColor="@color/textPrimary"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
 
+    <!-- Events List Container -->
     <LinearLayout
         android:id="@+id/eventsListContainer"
         android:layout_width="match_parent"

@@ -6,6 +6,18 @@
     android:gravity="center"
     android:background="@drawable/clouds">
 
+    <!-- Add Note Title -->
+    <TextView
+        android:id="@+id/addNoteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Note"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/blue"
+        android:gravity="center"/>
+
     <!-- Note Title Input -->
     <EditText
         android:id="@+id/noteTitleInput"

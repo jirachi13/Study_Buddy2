@@ -6,6 +6,18 @@
     android:gravity="center"
     android:background="@drawable/clouds">
 
+    <!-- Add Task Title -->
+    <TextView
+        android:id="@+id/addTaskTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Task"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/blue"
+        android:gravity="center"/>
+
     <!-- Task Title Input -->
     <EditText
         android:id="@+id/taskTitleInput"
@@ -51,4 +63,5 @@
         android:textColor="@color/white"
         android:textSize="16sp"
         android:layout_marginTop="16dp" />
+
 </LinearLayout>

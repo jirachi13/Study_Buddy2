@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- Task Title -->
+    <TextView
+        android:id="@+id/taskDetailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentStart="true" />
+
+    <!-- Task Description -->
+    <TextView
+        android:id="@+id/taskDetailDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taskDetailTitle"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp" />
+
+    <!-- Task Due Date -->
+    <TextView
+        android:id="@+id/taskDetailDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/taskDetailDescription"
+        android:textSize="14sp"
+        android:textColor="@color/gray"
+        android:layout_marginTop="8dp" />
+
+    <!-- Complete Icon -->
+    <ImageView
+        android:id="@+id/taskCompleteIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_check"
+        android:tint="@color/black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp" />
+
+    <!-- Delete Icon -->
+    <ImageView
+        android:id="@+id/taskDeleteIcon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_trash"
+        android:tint="@color/black"
+        android:layout_below="@id/taskCompleteIcon"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/viewTaskButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Back"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_rounded" />
+
+</RelativeLayout>

@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
 import java.util.Calendar;
+import java.util.List;
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -61,9 +61,11 @@ public class NotesActivity extends AppCompatActivity {
 
             TextView noteTitle = noteView.findViewById(R.id.noteTitle);
             TextView noteDescription = noteView.findViewById(R.id.noteDescription);
+            TextView noteDate = noteView.findViewById(R.id.noteDate); // Add this line to show date
 
             noteTitle.setText(note.getTitle());
             noteDescription.setText(note.getContent());
+            noteDate.setText(note.getDate()); // Display the note date
 
             noteView.setOnClickListener(v -> showNoteDetails(note));
             notesListContainer.addView(noteView);

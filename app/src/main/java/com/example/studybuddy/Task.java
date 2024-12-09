@@ -6,6 +6,7 @@ public class Task {
     private String description;
     private String dueDate;
 
+    // Constructor, getters, and setters
     public Task(int id, String title, String description, String dueDate) {
         this.id = id;
         this.title = title;
@@ -19,7 +20,6 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    // Getters and setters
     public int getId() {
         return id;
     }

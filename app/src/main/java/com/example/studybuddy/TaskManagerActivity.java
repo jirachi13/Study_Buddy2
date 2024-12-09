@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +55,14 @@ public class TaskManagerActivity extends AppCompatActivity {
                 taskTitle.setText(task.getTitle());
                 taskDescription.setText(task.getDescription());
                 taskDueDate.setText(task.getDueDate());
+
+                // Set a click listener for each task item
+                taskView.setOnClickListener(v -> {
+                    // Pass the task ID to the task detail activity
+                    Intent intent = new Intent(TaskManagerActivity.this, TaskDetailActivity.class);
+                    intent.putExtra("task_id", task.getId());
+                    startActivity(intent);
+                });
 
                 taskListContainer.addView(taskView);
             }

@@ -14,17 +14,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "studybuddy.db";
     private static final int DATABASE_VERSION = 1;
 
+    // Notes table columns
     private static final String TABLE_NOTES = "notes";
     private static final String COLUMN_NOTE_ID = "id";
     private static final String COLUMN_NOTE_TITLE = "title";
     private static final String COLUMN_NOTE_CONTENT = "content";
     private static final String COLUMN_NOTE_DATE = "date";
 
+    // Tasks table columns
     private static final String TABLE_TASKS = "tasks";
     private static final String COLUMN_TASK_ID = "id";
     private static final String COLUMN_TASK_TITLE = "title";
     private static final String COLUMN_TASK_DESCRIPTION = "description";
     private static final String COLUMN_TASK_DATE = "date";
+    private static final String COLUMN_TASK_STATUS = "status";  // Add this line
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -32,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Create Notes table
         String createNotesTable = "CREATE TABLE " + TABLE_NOTES + " (" +
                 COLUMN_NOTE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOTE_TITLE + " TEXT, " +
@@ -39,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 COLUMN_NOTE_DATE + " TEXT)";
         db.execSQL(createNotesTable);
 
+        // Create Tasks table
         String createTasksTable = "CREATE TABLE " + TABLE_TASKS + " (" +
                 COLUMN_TASK_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_TASK_TITLE + " TEXT, " +
@@ -123,5 +129,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return tasks;
+    }
+
+    // Get a task by ID
+    public Task getTaskById(int taskId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_TASKS, null, COLUMN_TASK_ID + " = ?", new String[]{String.valueOf(taskId)}, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            Task task = new Task(
+                    cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_TASK_ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TASK_TITLE)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TASK_DESCRIPTION)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TASK_DATE))
+            );
+            cursor.close();
+            db.close();
+            return task;
+        }
+        db.close();
+        return null; // Return null if no task found
+    }
+
+    // Delete a task by ID
+    public void deleteTask(int taskId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TASKS, COLUMN_TASK_ID + "=?", new String[]{String.valueOf(taskId)});
+        db.close();
+    }
+
+    // Update task status
+    public void updateTaskStatus(int taskId, String status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TASK_STATUS, status);
+        db.update(TABLE_TASKS, values, COLUMN_TASK_ID + " = ?", new String[]{String.valueOf(taskId)});
+        db.close();
     }
 }

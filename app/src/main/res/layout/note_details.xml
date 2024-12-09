@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/blue"
     android:padding="16dp">
 
@@ -48,7 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="View Notes"
+        android:text="Back"
         android:backgroundTint="@color/white"
-        android:textColor="@color/blue" />
+        android:textColor="@color/blue"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_rounded" />
 </RelativeLayout>

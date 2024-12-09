@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -86,16 +87,21 @@ public class NotesActivity extends AppCompatActivity {
 
         noteCompleteIcon.setOnClickListener(v -> {
             // Handle complete action (you can mark it or move it)
-            displayNotes();
+            Toast.makeText(NotesActivity.this, "Note marked as complete", Toast.LENGTH_SHORT).show();
+            displayNotes(); // Refresh the list
         });
 
         noteDeleteIcon.setOnClickListener(v -> {
             databaseHelper.deleteNote(note.getId());
-            displayNotes();
+            Toast.makeText(NotesActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
+            displayNotes(); // Refresh the list
         });
 
         viewNotesButton.setOnClickListener(v -> {
             // Close dialog and return to notes
+            Toast.makeText(NotesActivity.this, "Returning to Notes", Toast.LENGTH_SHORT).show();
+            // Dismiss the dialog
+            finish();  // Close the popup
         });
 
         new AlertDialog.Builder(this)

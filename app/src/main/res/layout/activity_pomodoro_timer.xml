@@ -6,6 +6,18 @@
     android:gravity="center"
     android:background="@drawable/clouds">
 
+    <!-- Title for Pomodoro Timer -->
+    <TextView
+        android:id="@+id/timerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pomodoro Timer"
+        android:textSize="24sp"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
+
     <!-- Timer Display -->
     <TextView
         android:id="@+id/timerTextView"

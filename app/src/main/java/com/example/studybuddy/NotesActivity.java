@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,7 +63,7 @@ public class NotesActivity extends AppCompatActivity {
 
             TextView noteTitle = noteView.findViewById(R.id.noteTitle);
             TextView noteDescription = noteView.findViewById(R.id.noteDescription);
-            TextView noteDate = noteView.findViewById(R.id.noteDate); // Add this line to show date
+            TextView noteDate = noteView.findViewById(R.id.noteDate);
 
             noteTitle.setText(note.getTitle());
             noteDescription.setText(note.getContent());
@@ -77,33 +78,39 @@ public class NotesActivity extends AppCompatActivity {
         View noteDetailView = LayoutInflater.from(this).inflate(R.layout.note_details, null);
 
         TextView noteDetailTitle = noteDetailView.findViewById(R.id.noteDetailTitle);
+        TextView noteDetailDate = noteDetailView.findViewById(R.id.noteDetailDate);  // Reference to the date TextView
         TextView noteDetailDescription = noteDetailView.findViewById(R.id.noteDetailDescription);
-        View noteCompleteIcon = noteDetailView.findViewById(R.id.noteCompleteIcon);
-        View noteDeleteIcon = noteDetailView.findViewById(R.id.noteDeleteIcon);
+        ImageView noteCompleteIcon = noteDetailView.findViewById(R.id.noteCompleteIcon);
+        ImageView noteDeleteIcon = noteDetailView.findViewById(R.id.noteDeleteIcon);
         Button viewNotesButton = noteDetailView.findViewById(R.id.viewNotesButton);
 
+        // Set the values from the Note object
         noteDetailTitle.setText(note.getTitle());
         noteDetailDescription.setText(note.getContent());
+        noteDetailDate.setText("Date: " + note.getDate());  // Dynamically set the date (get the date from the Note object)
 
+        // Complete action (mark as complete)
         noteCompleteIcon.setOnClickListener(v -> {
-            // Handle complete action (you can mark it or move it)
+            // Handle complete action
             Toast.makeText(NotesActivity.this, "Note marked as complete", Toast.LENGTH_SHORT).show();
-            displayNotes(); // Refresh the list
+            displayNotes(); // Refresh the notes list after completion
         });
 
+        // Delete action (delete the note)
         noteDeleteIcon.setOnClickListener(v -> {
             databaseHelper.deleteNote(note.getId());
             Toast.makeText(NotesActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
-            displayNotes(); // Refresh the list
+            displayNotes(); // Refresh the notes list after deletion
         });
 
+        // View Notes button action
         viewNotesButton.setOnClickListener(v -> {
-            // Close dialog and return to notes
-            Toast.makeText(NotesActivity.this, "Returning to Notes", Toast.LENGTH_SHORT).show();
-            // Dismiss the dialog
+            // Close the dialog and return to the notes list
+            Toast.makeText(NotesActivity.this, "Returning", Toast.LENGTH_SHORT).show();
             finish();  // Close the popup
         });
 
+        // Show the dialog with the note details
         new AlertDialog.Builder(this)
                 .setView(noteDetailView)
                 .setPositiveButton(null, null)
